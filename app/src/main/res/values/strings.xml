@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Sa2ration (Shizuku)</string>
+    <string name="preview_description">Colorful autumn mountain preview</string>
+    <string name="check_setup">START / CHECK SETUP</string>
+    <string name="install_shizuku">INSTALL SHIZUKU</string>
+    <string name="start_shizuku">START SHIZUKU</string>
+    <string name="grant_access">GRANT ACCESS</string>
+    <string name="ready">READY · RECHECK</string>
+    <string name="installing_shizuku">Opening the official Shizuku download page.</string>
+    <string name="starting_shizuku">Opening Shizuku. Start its service, then return here.</string>
+    <string name="shizuku_permission_denied">Allow this app in Shizuku to control saturation.</string>
+    <string name="saturation_failed">The phone rejected the saturation change.</string>
+</resources>

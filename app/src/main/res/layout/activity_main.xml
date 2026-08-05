@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="18dp"
+        android:paddingTop="32dp"
+        android:paddingRight="18dp"
+        android:paddingBottom="32dp"
+        tools:ignore="UselessParent">
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/check_setup"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/log"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginTop="10dp"
+        android:background="#242124"
+        android:fontFamily="monospace"
+        android:padding="12dp"
+        android:scrollbars="vertical"
+        android:textColor="#E6E1E5"
+        android:textIsSelectable="true"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="18dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/preview_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/saturation_preview" />
+
+    <SeekBar
+        android:id="@+id/saturation"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="2dp"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/seekbar_progress"
+        android:splitTrack="false"
+        android:thumb="@drawable/seekbar_thumb" />
+    </LinearLayout>
+</FrameLayout>
