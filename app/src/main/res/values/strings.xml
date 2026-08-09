@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Sa2ration (Shizuku)</string>
     <string name="preview_description">Colorful autumn mountain preview</string>
+    <string name="default_saturation_percentage">100%</string>
+    <string name="saturation_percentage">%1$d%%</string>
     <string name="check_setup">START / CHECK SETUP</string>
     <string name="install_shizuku">INSTALL SHIZUKU</string>
     <string name="start_shizuku">START SHIZUKU</string>

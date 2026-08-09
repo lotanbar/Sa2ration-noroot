@@ -15,18 +15,49 @@
         android:paddingBottom="32dp"
         tools:ignore="UselessParent">
 
-    <Button
-        android:id="@+id/start"
+    <ImageView
+        android:id="@+id/preview"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="@string/check_setup"
-        android:textStyle="bold" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/preview_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/saturation_preview" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <SeekBar
+            android:id="@+id/saturation"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="-20dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="100"
+            android:progressDrawable="@drawable/seekbar_progress"
+            android:splitTrack="false"
+            android:thumb="@drawable/seekbar_thumb" />
+
+        <TextView
+            android:id="@+id/saturation_percentage"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/default_saturation_percentage"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/log"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:layout_marginTop="10dp"
         android:background="#242124"
         android:fontFamily="monospace"
         android:padding="12dp"
@@ -35,25 +66,12 @@
         android:textIsSelectable="true"
         android:textSize="12sp" />
 
-    <ImageView
-        android:id="@+id/preview"
+    <Button
+        android:id="@+id/start"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="18dp"
-        android:layout_weight="1"
-        android:contentDescription="@string/preview_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/saturation_preview" />
-
-    <SeekBar
-        android:id="@+id/saturation"
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:layout_marginTop="2dp"
-        android:max="100"
-        android:progress="100"
-        android:progressDrawable="@drawable/seekbar_progress"
-        android:splitTrack="false"
-        android:thumb="@drawable/seekbar_thumb" />
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/check_setup"
+        android:textStyle="bold" />
     </LinearLayout>
 </FrameLayout>

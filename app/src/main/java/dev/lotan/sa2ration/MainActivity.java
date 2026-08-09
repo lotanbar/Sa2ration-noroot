@@ -31,6 +31,7 @@ public final class MainActivity extends Activity {
     private final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.US);
     private SharedPreferences preferences;
     private SeekBar saturation;
+    private TextView saturationPercentage;
     private TextView logView;
     private Button start;
     private SetupState setupState;
@@ -78,6 +79,7 @@ public final class MainActivity extends Activity {
 
         preferences = getSharedPreferences(SaturationApplication.PREFS, MODE_PRIVATE);
         saturation = findViewById(R.id.saturation);
+        saturationPercentage = findViewById(R.id.saturation_percentage);
         logView = findViewById(R.id.log);
         start = findViewById(R.id.start);
         logView.setMovementMethod(new ScrollingMovementMethod());
@@ -85,10 +87,12 @@ public final class MainActivity extends Activity {
         int savedProgress = Math.max(0, Math.min(100,
                 Math.round(preferences.getFloat(SaturationApplication.KEY_VALUE, 1.0f) * 100)));
         saturation.setProgress(savedProgress);
+        updatePercentage(savedProgress);
 
         saturation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                updatePercentage(progress);
                 if (!fromUser) return;
                 saveValue();
                 scheduleLiveApply();
@@ -111,7 +115,6 @@ public final class MainActivity extends Activity {
         Shizuku.addBinderDeadListener(binderDeadListener);
         Shizuku.addRequestPermissionResultListener(permissionResultListener);
         addLog("App started; checking setup");
-        addLog("Current saturation " + savedProgress + "%");
         checkSetup(false);
     }
 
@@ -217,7 +220,7 @@ public final class MainActivity extends Activity {
         }
         try {
             SurfaceFlingerController.setSaturation(level / 100.0f);
-            if (writeLog) addLog("Applied saturation " + level + "%");
+            if (writeLog) addLog("Saturation applied");
         } catch (Exception exception) {
             String message = exception.getMessage();
             if (message == null || message.isEmpty()) message = exception.getClass().getSimpleName();
@@ -230,6 +233,10 @@ public final class MainActivity extends Activity {
         preferences.edit()
                 .putFloat(SaturationApplication.KEY_VALUE, saturation.getProgress() / 100.0f)
                 .apply();
+    }
+
+    private void updatePercentage(int progress) {
+        saturationPercentage.setText(getString(R.string.saturation_percentage, progress));
     }
 
     private void addLog(String message) {
